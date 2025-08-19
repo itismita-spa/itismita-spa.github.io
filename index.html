@@ -2,63 +2,181 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Itismita Spa</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Itismita Spa | Women-Only Spa Therapy</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Itismita Spa — professional women-only spa therapies: full body massage, aromatherapy, head & shoulder massage." />
+  <meta name="theme-color" content="#7e57c2" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand:#7e57c2;
+      --brand-dark:#5e35b1;
+      --ink:#333;
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink)}
+    .btn-brand{background:var(--brand);color:#fff;border:none;border-radius:28px;padding:.7rem 1.2rem;font-weight:600}
+    .btn-brand:hover{background:var(--brand-dark);color:#fff}
+    /* Hero */
+    .hero{
+      position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;
+      background:url('https://images.pexels.com/photos/3738347/pexels-photo-3738347.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1') center/cover no-repeat;
+    }
+    .hero::after{
+      content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));
+    }
+    .hero > .hero-content{position:relative;z-index:1;padding:0 1rem}
+    .hero h1{font-weight:600;font-size:clamp(2rem,4vw,3.2rem)}
+    .section-title{font-weight:700;font-size:clamp(1.6rem,2.5vw,2rem);margin-bottom:1rem}
+    /* Cards */
+    .service-card{border:none;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.08);transition:transform .25s ease}
+    .service-card:hover{transform:translateY(-6px)}
+    .service-card img{width:100%;height:240px;object-fit:cover}
+    .badge-soft{background:#f4edff;color:var(--brand);border-radius:999px;padding:.25rem .7rem;font-weight:600;font-size:.8rem}
+    /* Footer */
+    footer{background:#222;color:#bbb}
+    a.link-light:hover{text-decoration:underline}
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Itismita Spa</h1>
-    <p>Exclusive Spa Services for Women</p>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Itismita Spa</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
+          <li class="nav-item"><a class="btn btn-brand ms-lg-2" href="#booking">Book Now</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="badge-soft">Women Only</span>
+      <h1 class="mt-3">Relax • Rejuvenate • Refresh</h1>
+      <p class="lead">Professional spa therapies at your comfort — exclusively for women.</p>
+      <a href="#services" class="btn btn-brand mt-2">Explore Services</a>
+    </div>
   </header>
 
-  <section class="hero">
-    <img src="images/spa-hero.jpg" alt="Relaxing Spa">
-    <div class="overlay">
-      <h2>Relax • Refresh • Rejuvenate</h2>
-      <a href="https://wa.me/91XXXXXXXXXX" class="btn">Book Appointment</a>
+  <!-- ABOUT -->
+  <section id="about" class="container py-5">
+    <h2 class="section-title text-center">About Itismita Spa</h2>
+    <p class="text-center mx-auto" style="max-width:800px">
+      At <strong>Itismita Spa</strong>, we offer curated spa therapies for stress relief, muscle relaxation,
+      and holistic wellness — provided by a certified therapist in a safe, women-only setting.
+    </p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="container py-5">
+    <h2 class="section-title text-center">Our Spa Therapies</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card service-card h-100">
+          <img loading="lazy"
+               src="https://images.pexels.com/photos/374148/pexels-photo-374148.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+               alt="Full Body Massage for women">
+          <div class="card-body">
+            <h5 class="card-title">Full Body Massage</h5>
+            <p class="card-text">Deep relaxation, improved circulation, and reduced stress.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card service-card h-100">
+          <img loading="lazy"
+               src="https://images.pexels.com/photos/6620894/pexels-photo-6620894.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+               alt="Aromatherapy massage with essential oils">
+          <div class="card-body">
+            <h5 class="card-title">Aromatherapy</h5>
+            <p class="card-text">Essential oils to calm the mind and rejuvenate the body.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card service-card h-100">
+          <img loading="lazy"
+               src="https://images.pexels.com/photos/6620936/pexels-photo-6620936.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+               alt="Head and shoulder massage for quick relief">
+          <div class="card-body">
+            <h5 class="card-title">Head & Shoulder Massage</h5>
+            <p class="card-text">Targeted relief for headaches, neck, and shoulder stiffness.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="service-list">
-      <div class="service">
-        <img src="images/body-massage.jpg" alt="Body Massage">
-        <h3>Body Massage</h3>
-        <p>Full body relaxation therapy with professional techniques.</p>
+  <!-- BOOKING -->
+  <section id="booking" class="container py-5">
+    <h2 class="section-title text-center">Book an Appointment</h2>
+    <form class="mx-auto" style="max-width:640px" id="bookingForm">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Full Name</label>
+          <input class="form-control" id="name" required />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Phone</label>
+          <input class="form-control" id="phone" type="tel" required />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Service</label>
+          <select class="form-select" id="service">
+            <option>Full Body Massage</option>
+            <option>Aromatherapy</option>
+            <option>Head & Shoulder Massage</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Preferred Date & Time</label>
+          <input class="form-control" id="datetime" type="datetime-local" required />
+        </div>
       </div>
-      <div class="service">
-        <img src="images/head-massage.jpg" alt="Head Massage">
-        <h3>Head Massage</h3>
-        <p>Relieve stress, improve sleep, and relax your mind.</p>
-      </div>
-      <div class="service">
-        <img src="images/aroma.jpg" alt="Aromatherapy">
-        <h3>Aromatherapy</h3>
-        <p>Healing with soothing essential oils for ultimate calmness.</p>
-      </div>
-      <div class="service">
-        <img src="images/swedish.jpg" alt="Swedish Massage">
-        <h3>Swedish Massage</h3>
-        <p>Gentle strokes to ease muscle tension and promote wellness.</p>
-      </div>
-      <div class="service">
-        <img src="images/hot-stone.jpg" alt="Hot Stone Therapy">
-        <h3>Hot Stone Therapy</h3>
-        <p>Warm stones to deeply relax tight muscles.</p>
-      </div>
-      <div class="service">
-        <img src="images/stress-relief.jpg" alt="Stress Relief">
-        <h3>Stress Relief Therapy</h3>
-        <p>Specialized treatment to reduce anxiety and stress.</p>
-      </div>
-    </div>
+      <button class="btn btn-brand w-100 mt-4" type="submit">Send on WhatsApp</button>
+      <p class="text-center small text-muted mt-2">We serve women clients only.</p>
+    </form>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Itismita Spa | Women Only</p>
-    <a href="https://wa.me/91XXXXXXXXXX" class="btn">Book on WhatsApp</a>
+  <!-- FOOTER -->
+  <footer class="py-4">
+    <div class="container text-center">
+      <p class="mb-1">© 2025 Itismita Spa — Women Only</p>
+      <a class="link-light" href="https://wa.me/918971403978" target="_blank">💬 Chat on WhatsApp</a>
+    </div>
   </footer>
+
+  <!-- JS (WhatsApp integration) -->
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const phone = encodeURIComponent(document.getElementById('phone').value.trim());
+      const service = encodeURIComponent(document.getElementById('service').value);
+      const datetime = encodeURIComponent(document.getElementById('datetime').value);
+      const msg = `Hi, I want to book an appointment at Itismita Spa.%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0APreferred: ${datetime}`;
+      // Replace with your full WhatsApp number including country code, e.g., 918971403978
+      window.open(`https://wa.me/918971403978?text=${msg}`, '_blank');
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
