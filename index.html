@@ -1,182 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Itismita Spa | Women-Only Spa Therapy</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Itismita Spa — professional women-only spa therapies: full body massage, aromatherapy, head & shoulder massage." />
-  <meta name="theme-color" content="#7e57c2" />
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --brand:#7e57c2;
-      --brand-dark:#5e35b1;
-      --ink:#333;
-    }
-    *{box-sizing:border-box}
-    body{font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink)}
-    .btn-brand{background:var(--brand);color:#fff;border:none;border-radius:28px;padding:.7rem 1.2rem;font-weight:600}
-    .btn-brand:hover{background:var(--brand-dark);color:#fff}
-    /* Hero */
-    .hero{
-      position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;
-      background:url('https://images.pexels.com/photos/3738347/pexels-photo-3738347.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1') center/cover no-repeat;
-    }
-    .hero::after{
-      content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));
-    }
-    .hero > .hero-content{position:relative;z-index:1;padding:0 1rem}
-    .hero h1{font-weight:600;font-size:clamp(2rem,4vw,3.2rem)}
-    .section-title{font-weight:700;font-size:clamp(1.6rem,2.5vw,2rem);margin-bottom:1rem}
-    /* Cards */
-    .service-card{border:none;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.08);transition:transform .25s ease}
-    .service-card:hover{transform:translateY(-6px)}
-    .service-card img{width:100%;height:240px;object-fit:cover}
-    .badge-soft{background:#f4edff;color:var(--brand);border-radius:999px;padding:.25rem .7rem;font-weight:600;font-size:.8rem}
-    /* Footer */
-    footer{background:#222;color:#bbb}
-    a.link-light:hover{text-decoration:underline}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Itismita Spa</title>
+<style>
+body {margin:0; font-family:'Segoe UI',sans-serif; background:#fafafa; color:#333;}
+header {background:#7c3aed; color:white; padding:20px; text-align:center;}
+header h1 {margin:0; font-size:2rem;}
+header p {margin:5px 0 0;}
+.services {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; padding:30px;}
+.service-card {background:white; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); display:flex; flex-direction:column; overflow:hidden;}
+.service-card img {width:100%; height:180px; object-fit:cover;}
+.service-info {padding:15px; flex:1; display:flex; flex-direction:column; justify-content:space-between;}
+.service-info h3 {margin:0 0 10px; color:#4c1d95;}
+.service-info p {margin:5px 0; font-size:0.95rem;}
+.price {font-weight:bold; margin:8px 0; color:#10b981;}
+.book-btn {background:#7c3aed; color:white; border:none; padding:10px; border-radius:8px; cursor:pointer; width:100%; font-size:1rem;}
+.book-btn:hover {background:#5b21b6;}
+.modal {display:none; position:fixed; z-index:1000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;}
+.modal-content {background:white; padding:20px; border-radius:12px; width:90%; max-width:400px; position:relative;}
+.modal-content h2 {margin-top:0; color:#4c1d95;}
+.modal-content input, .modal-content select {width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #ccc; font-size:1rem;}
+.modal-content button {margin-top:10px;}
+.close {position:absolute; top:10px; right:15px; font-size:1.5rem; cursor:pointer; color:#555;}
+@media (max-width:600px){header h1{font-size:1.5rem;} .service-info p{font-size:0.85rem;}}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Itismita Spa</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div id="nav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
-          <li class="nav-item"><a class="btn btn-brand ms-lg-2" href="#booking">Book Now</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<header>
+<h1>Itismita Spa</h1>
+<p>Relax • Rejuvenate • Refresh</p>
+</header>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <span class="badge-soft">Women Only</span>
-      <h1 class="mt-3">Relax • Rejuvenate • Refresh</h1>
-      <p class="lead">Professional spa therapies at your comfort — exclusively for women.</p>
-      <a href="#services" class="btn btn-brand mt-2">Explore Services</a>
-    </div>
-  </header>
+<section class="services" id="services"></section>
 
-  <!-- ABOUT -->
-  <section id="about" class="container py-5">
-    <h2 class="section-title text-center">About Itismita Spa</h2>
-    <p class="text-center mx-auto" style="max-width:800px">
-      At <strong>Itismita Spa</strong>, we offer curated spa therapies for stress relief, muscle relaxation,
-      and holistic wellness — provided by a certified therapist in a safe, women-only setting.
-    </p>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="container py-5">
-    <h2 class="section-title text-center">Our Spa Therapies</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card service-card h-100">
-          <img loading="lazy"
-               src="https://images.pexels.com/photos/374148/pexels-photo-374148.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
-               alt="Full Body Massage for women">
-          <div class="card-body">
-            <h5 class="card-title">Full Body Massage</h5>
-            <p class="card-text">Deep relaxation, improved circulation, and reduced stress.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card service-card h-100">
-          <img loading="lazy"
-               src="https://images.pexels.com/photos/6620894/pexels-photo-6620894.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
-               alt="Aromatherapy massage with essential oils">
-          <div class="card-body">
-            <h5 class="card-title">Aromatherapy</h5>
-            <p class="card-text">Essential oils to calm the mind and rejuvenate the body.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card service-card h-100">
-          <img loading="lazy"
-               src="https://images.pexels.com/photos/6620936/pexels-photo-6620936.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
-               alt="Head and shoulder massage for quick relief">
-          <div class="card-body">
-            <h5 class="card-title">Head & Shoulder Massage</h5>
-            <p class="card-text">Targeted relief for headaches, neck, and shoulder stiffness.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOOKING -->
-  <section id="booking" class="container py-5">
-    <h2 class="section-title text-center">Book an Appointment</h2>
-    <form class="mx-auto" style="max-width:640px" id="bookingForm">
-      <div class="row g-3">
-        <div class="col-md-6">
-          <label class="form-label">Full Name</label>
-          <input class="form-control" id="name" required />
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Phone</label>
-          <input class="form-control" id="phone" type="tel" required />
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Service</label>
-          <select class="form-select" id="service">
-            <option>Full Body Massage</option>
-            <option>Aromatherapy</option>
-            <option>Head & Shoulder Massage</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Preferred Date & Time</label>
-          <input class="form-control" id="datetime" type="datetime-local" required />
-        </div>
-      </div>
-      <button class="btn btn-brand w-100 mt-4" type="submit">Send on WhatsApp</button>
-      <p class="text-center small text-muted mt-2">We serve women clients only.</p>
+<!-- Booking Modal -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeBooking()">&times;</span>
+    <h2>Book Your Therapy</h2>
+    <form id="bookingForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="tel" id="phone" placeholder="WhatsApp Number" required>
+      <input type="text" id="service" readonly>
+      <input type="hidden" id="price">
+      <label for="date">Select Date</label>
+      <select id="date" required></select>
+      <label for="time">Select Time</label>
+      <select id="time" required></select>
+      <button type="submit" class="book-btn">Confirm Booking</button>
     </form>
-  </section>
+  </div>
+</div>
 
-  <!-- FOOTER -->
-  <footer class="py-4">
-    <div class="container text-center">
-      <p class="mb-1">© 2025 Itismita Spa — Women Only</p>
-      <a class="link-light" href="https://wa.me/918971403978" target="_blank">💬 Chat on WhatsApp</a>
-    </div>
-  </footer>
+<script>
+// SPA services data
+const services = [
+  {name:"Head to Toe Pain Relief", desc:"Deep tissue + foot + head massage (high pressure)", duration:"90 mins", price:"1799", img:"images/head_toe_massage.png"},
+  {name:"Swedish Relief Massage", desc:"Full body massage (medium pressure)", duration:"60 mins", price:"1399", img:"images/swedish_massage.png"},
+  {name:"Aroma Therapy Massage", desc:"Full body massage (light pressure)", duration:"60 mins", price:"1399", img:"images/aroma_massage.png"},
+  {name:"Full Body Deep Tissue Massage", desc:"Full body massage (high pressure)", duration:"60 mins", price:"1499", img:"images/deep_tissue.png"},
+  {name:"Full Back Massage", desc:"Full back massage (medium pressure)", duration:"60 mins", price:"1399", img:"images/back_massage.jpg"},
+  {name:"Signature Therapy Head to Toe Massage", desc:"Full body + head + face massage (medium pressure)", duration:"90 mins", price:"1799", img:"images/signature.png"},
+  {name:"Period Pamper Massage", desc:"Abdominal + lower back + calves + thigh massage", duration:"45 mins", price:"999", img:"images/period_pamper.png"},
+  {name:"Full Body Scrub", desc:"Exfoliating full body scrub", duration:"60 mins", price:"1399", img:"images/scrub_massage.jpg"},
+  {name:"Stretching with Full Body Massage", desc:"Stretching + full body massage", duration:"70 mins", price:"1599", img:"images/stretching.png"},
+  {name:"Foot Reflexology Massage", desc:"Foot reflexology massage", duration:"60 mins", price:"1399", img:"images/foot_massage.jpg"}
+];
 
-  <!-- JS (WhatsApp integration) -->
-  <script>
-    document.getElementById('bookingForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = encodeURIComponent(document.getElementById('name').value.trim());
-      const phone = encodeURIComponent(document.getElementById('phone').value.trim());
-      const service = encodeURIComponent(document.getElementById('service').value);
-      const datetime = encodeURIComponent(document.getElementById('datetime').value);
-      const msg = `Hi, I want to book an appointment at Itismita Spa.%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0APreferred: ${datetime}`;
-      // Replace with your full WhatsApp number including country code, e.g., 918971403978
-      window.open(`https://wa.me/918971403978?text=${msg}`, '_blank');
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+// Render services
+const container = document.getElementById("services");
+services.forEach(s => {
+  const card = document.createElement("div");
+  card.className = "service-card";
+  card.innerHTML = `
+    <img src="${s.img}" alt="${s.name}">
+    <div class="service-info">
+      <h3>${s.name}</h3>
+      <p>${s.desc}</p>
+      <p>⏱️ ${s.duration}</p>
+      <p class="price">₹${s.price}</p>
+      <button class="book-btn" onclick="openBooking('${s.name}','${s.price}')">Book Now</button>
+    </div>`;
+  container.appendChild(card);
+});
+
+// Booking modal
+const modal = document.getElementById('bookingModal');
+const serviceInput = document.getElementById('service');
+const priceInput = document.getElementById('price');
+const dateSelect = document.getElementById('date');
+const timeSelect = document.getElementById('time');
+
+function openBooking(service, price){
+  modal.style.display = 'flex';
+  serviceInput.value = service;
+  priceInput.value = price;
+  populateDates();
+  populateTimes();
+}
+
+function closeBooking(){
+  modal.style.display = 'none';
+}
+
+// Close modal on outside click
+window.onclick = function(event){
+  if(event.target == modal) modal.style.display = "none";
+}
+
+// Booking form submission
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  let name = document.getElementById('name').value;
+  let phone = document.getElementById('phone').value;
+  let service = serviceInput.value;
+  let price = priceInput.value;
+  let date = dateSelect.value;
+  let time = timeSelect.value;
+  let msg = `Hello, I am ${name}. I want to book *${service}* on ${date} at ${time}. Price: ₹${price}`;
+  window.open(`https://wa.me/918971403978?text=${encodeURIComponent(msg)}`, '_blank');
+});
+
+// Populate date dropdown (today onwards, 1 year)
+function populateDates() {
+  dateSelect.innerHTML = '';
+  const today = new Date();
+  for (let i = 0; i < 365; i++) {
+    let dt = new Date(today);
+    dt.setDate(today.getDate() + i);
+    const option = document.createElement("option");
+    option.value = dt.toISOString().slice(0,10);
+    option.text = dt.toDateString();
+    dateSelect.appendChild(option);
+  }
+}
+
+// Populate time dropdown (09:00 – 18:00 in 15-min intervals)
+function populateTimes() {
+  timeSelect.innerHTML = "";
+  const today = new Date();
+  const selectedDate = new Date(dateSelect.value);
+  for (let h = 9; h <= 18; h++) {
+    for (let m = 0; m < 60; m += 15) {
+      if(h === 18 && m > 0) continue;
+      const option = document.createElement("option");
+      const hourStr = h.toString().padStart(2,'0');
+      const minStr = m.toString().padStart(2,'0');
+      option.value = `${hourStr}:${minStr}`;
+      let ampm = h < 12 ? "AM" : "PM";
+      let displayHour = h % 12 === 0 ? 12 : h % 12;
+      option.text = `${displayHour}:${minStr} ${ampm}`;
+      // Disable past times if booking for today
+      if(selectedDate.toDateString() === today.toDateString()) {
+        const now = new Date();
+        if(h < now.getHours() || (h === now.getHours() && m < now.getMinutes())) option.disabled = true;
+      }
+      timeSelect.appendChild(option);
+    }
+  }
+}
+
+// Update times if date changes
+dateSelect.addEventListener("change", populateTimes);
+</script>
+
 </body>
 </html>
