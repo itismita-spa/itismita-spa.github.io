@@ -1,171 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Itismita Spa</title>
-<style>
-body {margin:0; font-family:'Segoe UI',sans-serif; background:#fafafa; color:#333;}
-header {background:#7c3aed; color:white; padding:20px; text-align:center;}
-header h1 {margin:0; font-size:2rem;}
-header p {margin:5px 0 0;}
-.services {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; padding:30px;}
-.service-card {background:white; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); display:flex; flex-direction:column; overflow:hidden;}
-.service-card img {width:100%; height:180px; object-fit:cover;}
-.service-info {padding:15px; flex:1; display:flex; flex-direction:column; justify-content:space-between;}
-.service-info h3 {margin:0 0 10px; color:#4c1d95;}
-.service-info p {margin:5px 0; font-size:0.95rem;}
-.price {font-weight:bold; margin:8px 0; color:#10b981;}
-.book-btn {background:#7c3aed; color:white; border:none; padding:10px; border-radius:8px; cursor:pointer; width:100%; font-size:1rem;}
-.book-btn:hover {background:#5b21b6;}
-.modal {display:none; position:fixed; z-index:1000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;}
-.modal-content {background:white; padding:20px; border-radius:12px; width:90%; max-width:400px; position:relative;}
-.modal-content h2 {margin-top:0; color:#4c1d95;}
-.modal-content input, .modal-content select {width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #ccc; font-size:1rem;}
-.modal-content button {margin-top:10px;}
-.close {position:absolute; top:10px; right:15px; font-size:1.5rem; cursor:pointer; color:#555;}
-@media (max-width:600px){header h1{font-size:1.5rem;} .service-info p{font-size:0.85rem;}}
-</style>
+  <!-- Basic -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Itismita Spa | Best Spa & Massage Therapy in Bangalore</title>
+  <meta name="description" content="Relax, rejuvenate and heal with expert spa & massage therapies at Itismita Spa, Bangalore. Head-to-toe pain relief, Swedish, Aroma, Deep Tissue, Reflexology, Body Scrub and more. Book on WhatsApp." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://itismita-spa.github.io/" />
+
+  <style>
+    :root {
+      --brand: #7c3aed;
+      --brand-dark: #5b21b6;
+      --accent: #10b981;
+      --bg: #fafafa;
+      --text: #333;
+      --footer-bg: linear-gradient(135deg, #7c3aed, #5b21b6);
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); line-height:1.6; }
+    header { background: var(--brand); color:#fff; padding: 28px 16px; text-align:center; }
+    header h1 { margin:0; font-size: 2.4rem; font-weight: 700; letter-spacing: 1px; }
+    header h4 { margin:6px 0; font-style: italic; opacity:0.9; }
+    header p { margin: 8px 0 0; font-size: 1.1rem; font-weight:500; letter-spacing: 1px; }
+
+    .services { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px; padding: 28px; }
+    .service-card { background:#fff; border-radius: 14px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); overflow:hidden; display:flex; flex-direction:column; transition: transform .2s ease; }
+    .service-card:hover { transform: translateY(-4px); }
+    .service-card img { width:100%; height: 190px; object-fit: cover; background:#eee; }
+    .service-info { padding: 14px; display:flex; flex-direction:column; gap:8px; flex:1; }
+    .service-info h3 { margin:0; color: var(--brand-dark); font-size: 1.15rem; font-weight:600; }
+    .service-info p { margin:0; font-size: 0.95rem; }
+    .price { color: var(--accent); font-weight: 700; margin-top: 4px; font-size: 1.05rem; }
+    .book-btn { margin-top: auto; background: var(--brand); color:#fff; border:none; padding: 10px 12px; border-radius: 10px; cursor:pointer; font-size: 1rem; width:100%; transition: background .2s ease; }
+    .book-btn:hover { background: var(--brand-dark); }
+
+    /* Modal */
+    .modal { display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items:center; justify-content:center; padding: 16px; }
+    .modal-content { background:#fff; width: 100%; max-width: 420px; border-radius: 14px; padding: 20px; position: relative; }
+    .close { position:absolute; right:12px; top:10px; font-size: 1.5rem; color:#666; cursor:pointer; }
+    .modal-content h2 { margin: 0 0 6px; color: var(--brand-dark); font-size: 1.3rem; font-weight:600; }
+    .meta { margin:0 0 12px; color:#555; font-style: italic; font-size: 0.95rem; }
+    label { display:block; font-weight: 600; margin: 10px 0 6px; }
+    input, select { width:100%; padding: 10px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem; }
+    .confirm { margin-top: 14px; width:100%; background: var(--brand); color:#fff; border:none; border-radius: 10px; padding: 12px; font-size: 1rem; cursor:pointer; transition: background .2s ease; }
+    .confirm:hover { background: var(--brand-dark); }
+
+    /* Footer */
+    footer { background: var(--footer-bg); color:#fff; text-align:center; padding: 30px 16px; margin-top:40px; }
+    footer h2 { margin:0 0 12px; font-size: 1.6rem; font-weight: 600; letter-spacing:1px; }
+    footer p { margin:6px 0; font-size: 1rem; opacity:0.9; }
+    footer a { color: #fff; font-weight:600; text-decoration:none; border-bottom:1px dotted #fff; transition: opacity .2s ease; }
+    footer a:hover { opacity:0.7; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      .service-info p { font-size: 0.9rem; }
+      footer h2 { font-size: 1.3rem; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-<h1>Itismita Spa</h1>
-<p>Relax • Rejuvenate • Refresh</p>
-</header>
+  <header>
+    <h1>Itismita Spa</h1>
+    <h4>(Best Spa & Massage Therapy in Bangalore)</h4>
+    <p>✨ Relax • Rejuvenate • Refresh ✨</p>
+  </header>
 
-<section class="services" id="services"></section>
+  <section class="services" id="services"></section>
 
-<!-- Booking Modal -->
-<div id="bookingModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeBooking()">&times;</span>
-    <h2>Book Your Therapy</h2>
-    <form id="bookingForm">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="tel" id="phone" placeholder="WhatsApp Number" required>
-      <input type="text" id="service" readonly>
-      <input type="hidden" id="price">
-      <label for="date">Select Date</label>
-      <select id="date" required></select>
-      <label for="time">Select Time</label>
-      <select id="time" required></select>
-      <button type="submit" class="book-btn">Confirm Booking</button>
-    </form>
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <span class="close" onclick="closeBooking()" aria-label="Close">&times;</span>
+      <h2 id="modalTitle">Book Your Therapy</h2>
+      <p class="meta" id="modalMeta"></p>
+
+      <form id="bookingForm">
+        <label for="custName">Your Name</label>
+        <input type="text" id="custName" placeholder="Enter your name" required />
+
+        <label for="custPhone">Contact Number</label>
+        <input type="tel" id="custPhone" placeholder="e.g. 9xxxxxxxxx" required />
+
+        <input type="text" id="service" readonly />
+        <input type="hidden" id="price" />
+
+        <label for="date">Select Date</label>
+        <select id="date" required></select>
+
+        <label for="time">Select Time</label>
+        <select id="time" required></select>
+
+        <button type="submit" class="confirm">Confirm on WhatsApp</button>
+      </form>
+    </div>
   </div>
-</div>
 
-<script>
-// SPA services data
-const services = [
-  {name:"Head to Toe Pain Relief", desc:"Deep tissue + foot + head massage (high pressure)", duration:"90 mins", price:"1799", img:"images/head_toe_massage.png"},
-  {name:"Swedish Relief Massage", desc:"Full body massage (medium pressure)", duration:"60 mins", price:"1399", img:"images/swedish_massage.png"},
-  {name:"Aroma Therapy Massage", desc:"Full body massage (light pressure)", duration:"60 mins", price:"1399", img:"images/aroma_massage.png"},
-  {name:"Full Body Deep Tissue Massage", desc:"Full body massage (high pressure)", duration:"60 mins", price:"1499", img:"images/deep_tissue.png"},
-  {name:"Full Back Massage", desc:"Full back massage (medium pressure)", duration:"60 mins", price:"1399", img:"images/back_massage.jpg"},
-  {name:"Signature Therapy Head to Toe Massage", desc:"Full body + head + face massage (medium pressure)", duration:"90 mins", price:"1799", img:"images/signature.png"},
-  {name:"Period Pamper Massage", desc:"Abdominal + lower back + calves + thigh massage", duration:"45 mins", price:"999", img:"images/period_pamper.png"},
-  {name:"Full Body Scrub", desc:"Exfoliating full body scrub", duration:"60 mins", price:"1399", img:"images/scrub_massage.jpg"},
-  {name:"Stretching with Full Body Massage", desc:"Stretching + full body massage", duration:"70 mins", price:"1599", img:"images/stretching.png"},
-  {name:"Foot Reflexology Massage", desc:"Foot reflexology massage", duration:"60 mins", price:"1399", img:"images/foot_massage.jpg"}
-];
+  <!-- Footer -->
+  <footer>
+    <h2>Itismita Spa</h2>
+    <p>📍 Marathahalli • Whitefield • Sarjapur • Varthur • Koramangala</p>
+    <p>📞 <a href="tel:+918971403978">+91 89714 03978</a></p>
+    <p>💬 Book easily on <a href="https://wa.me/918971403978" target="_blank">WhatsApp</a></p>
+    <p>&copy; <span id="year"></span> Itismita Spa. All Rights Reserved.</p>
+  </footer>
 
-// Render services
-const container = document.getElementById("services");
-services.forEach(s => {
-  const card = document.createElement("div");
-  card.className = "service-card";
-  card.innerHTML = `
-    <img src="${s.img}" alt="${s.name}">
-    <div class="service-info">
-      <h3>${s.name}</h3>
-      <p>${s.desc}</p>
-      <p>⏱️ ${s.duration}</p>
-      <p class="price">₹${s.price}</p>
-      <button class="book-btn" onclick="openBooking('${s.name}','${s.price}')">Book Now</button>
-    </div>`;
-  container.appendChild(card);
-});
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-// Booking modal
-const modal = document.getElementById('bookingModal');
-const serviceInput = document.getElementById('service');
-const priceInput = document.getElementById('price');
-const dateSelect = document.getElementById('date');
-const timeSelect = document.getElementById('time');
+    // ---------- DATA: services ----------
+    const services = [
+      {name:"Head to Toe Pain Relief", desc:"Deep tissue + foot + head massage (high pressure)", duration:"90 mins", price:"1799", img:"images/head_toe_massage.png"},
+      {name:"Swedish Relief Massage", desc:"Full body massage (medium pressure)", duration:"60 mins", price:"1399", img:"images/swedish_massage.png"},
+      {name:"Aroma Therapy Massage", desc:"Full body massage (light pressure)", duration:"60 mins", price:"1399", img:"images/aroma_massage.png"},
+      {name:"Full Body Deep Tissue Massage", desc:"Full body massage (high pressure)", duration:"60 mins", price:"1499", img:"images/deep_tissue.png"},
+      {name:"Full Back Massage", desc:"Full back massage (medium pressure)", duration:"60 mins", price:"1399", img:"images/back_massage.jpg"},
+      {name:"Signature Therapy Head to Toe Massage", desc:"Full body + head + face massage (medium pressure)", duration:"90 mins", price:"1799", img:"images/signature.png"},
+      {name:"Period Pamper Massage", desc:"Abdominal + lower back + calves + thigh massage", duration:"45 mins", price:"999", img:"images/period_pamper.png"},
+      {name:"Full Body Scrub", desc:"Exfoliating full body scrub", duration:"60 mins", price:"1399", img:"images/scrub_massage.jpg"},
+      {name:"Stretching with Full Body Massage", desc:"Stretching + full body massage", duration:"70 mins", price:"1599", img:"images/stretching.png"},
+      {name:"Foot Reflexology Massage", desc:"Foot reflexology massage", duration:"60 mins", price:"1399", img:"images/foot_massage.jpg"}
+    ];
 
-function openBooking(service, price){
-  modal.style.display = 'flex';
-  serviceInput.value = service;
-  priceInput.value = price;
-  populateDates();
-  populateTimes();
-}
+    const grid = document.getElementById("services");
+    services.forEach(s => {
+      const card = document.createElement("article");
+      card.className = "service-card";
+      card.innerHTML = `
+        <img src="${s.img}" alt="${s.name} massage therapy" loading="lazy" onerror="this.style.display='none'">
+        <div class="service-info">
+          <h3>${s.name}</h3>
+          <p>${s.desc}</p>
+          <p>⏱️ ${s.duration}</p>
+          <p class="price">₹${s.price}</p>
+          <button class="book-btn" onclick="openBooking('${s.name}','${s.price}','${s.duration}')">Book Now</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
 
-function closeBooking(){
-  modal.style.display = 'none';
-}
+    const modal = document.getElementById("bookingModal");
+    const serviceInput = document.getElementById("service");
+    const priceInput = document.getElementById("price");
+    const dateSelect = document.getElementById("date");
+    const timeSelect = document.getElementById("time");
+    const modalMeta = document.getElementById("modalMeta");
 
-// Close modal on outside click
-window.onclick = function(event){
-  if(event.target == modal) modal.style.display = "none";
-}
-
-// Booking form submission
-document.getElementById('bookingForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  let name = document.getElementById('name').value;
-  let phone = document.getElementById('phone').value;
-  let service = serviceInput.value;
-  let price = priceInput.value;
-  let date = dateSelect.value;
-  let time = timeSelect.value;
-  let msg = `Hello, I am ${name}. I want to book *${service}* on ${date} at ${time}. Price: ₹${price}`;
-  window.open(`https://wa.me/918971403978?text=${encodeURIComponent(msg)}`, '_blank');
-});
-
-// Populate date dropdown (today onwards, 1 year)
-function populateDates() {
-  dateSelect.innerHTML = '';
-  const today = new Date();
-  for (let i = 0; i < 365; i++) {
-    let dt = new Date(today);
-    dt.setDate(today.getDate() + i);
-    const option = document.createElement("option");
-    option.value = dt.toISOString().slice(0,10);
-    option.text = dt.toDateString();
-    dateSelect.appendChild(option);
-  }
-}
-
-// Populate time dropdown (09:00 – 18:00 in 15-min intervals)
-function populateTimes() {
-  timeSelect.innerHTML = "";
-  const today = new Date();
-  const selectedDate = new Date(dateSelect.value);
-  for (let h = 9; h <= 18; h++) {
-    for (let m = 0; m < 60; m += 15) {
-      if(h === 18 && m > 0) continue;
-      const option = document.createElement("option");
-      const hourStr = h.toString().padStart(2,'0');
-      const minStr = m.toString().padStart(2,'0');
-      option.value = `${hourStr}:${minStr}`;
-      let ampm = h < 12 ? "AM" : "PM";
-      let displayHour = h % 12 === 0 ? 12 : h % 12;
-      option.text = `${displayHour}:${minStr} ${ampm}`;
-      // Disable past times if booking for today
-      if(selectedDate.toDateString() === today.toDateString()) {
-        const now = new Date();
-        if(h < now.getHours() || (h === now.getHours() && m < now.getMinutes())) option.disabled = true;
-      }
-      timeSelect.appendChild(option);
+    function openBooking(service, price, duration){
+      modal.style.display = "flex";
+      modal.setAttribute("aria-hidden","false");
+      serviceInput.value = service;
+      priceInput.value = price;
+      modalMeta.textContent = `${service} • ${duration} • ₹${price}`;
+      populateDates();
+      populateTimes();
     }
-  }
-}
+    function closeBooking(){
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden","true");
+    }
+    window.addEventListener("click", (e) => { if (e.target === modal) closeBooking(); });
 
-// Update times if date changes
-dateSelect.addEventListener("change", populateTimes);
-</script>
+    document.getElementById("bookingForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const name = document.getElementById("custName").value.trim();
+      const phone = document.getElementById("custPhone").value.trim();
+      const service = serviceInput.value;
+      const price = priceInput.value;
+      const date = dateSelect.value;
+      const time = timeSelect.value;
+      if(!name || !phone || !date || !time){ alert("Please complete all fields."); return; }
+      const msg = `Hello, I am ${name} (WhatsApp: ${phone}). I want to book *${service}* on ${date} at ${time}. Price: ₹${price}`;
+      window.open(`https://wa.me/918971403978?text=${encodeURIComponent(msg)}`, "_blank");
+      closeBooking();
+    });
 
+    function populateDates(){
+      dateSelect.innerHTML = "";
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      for(let i=0;i<365;i++){
+        const d = new Date(today);
+        d.setDate(today.getDate() + i);
+        const val = d.toISOString().slice(0,10);
+        const opt = document.createElement("option");
+        opt.value = val;
+        opt.textContent = d.toDateString();
+        dateSelect.appendChild(opt);
+      }
+    }
+    function populateTimes(){
+      timeSelect.innerHTML = "";
+      const startMins = 9*60;
+      const endMins   = 18*60;
+      const now = new Date();
+      const selectedDate = new Date(dateSelect.value + "T00:00:00");
+      for(let m=startMins; m<=endMins; m+=15){
+        const h = Math.floor(m/60);
+        const mm = m%60;
+        const hhStr = h.toString().padStart(2,"0");
+        const mmStr = mm.toString().padStart(2,"0");
+        const value = `${hhStr}:${mmStr}`;
+        const disp = new Date(`1970-01-01T${value}:00`).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        const opt = document.createElement("option");
+        opt.value = value;
+        opt.textContent = disp;
+        if(selectedDate.toDateString() === now.toDateString()){
+          const minsNow = now.getHours()*60 + now.getMinutes();
+          if(m <= minsNow) opt.disabled = true;
+        }
+        timeSelect.appendChild(opt);
+      }
+    }
+    dateSelect?.addEventListener("change", populateTimes);
+  </script>
 </body>
 </html>
