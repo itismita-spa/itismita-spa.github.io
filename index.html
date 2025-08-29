@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Itismita Spa | Best Spa & Massage Therapy in Bangalore</title>
-  <meta name="description" content="Relax, rejuvenate and heal with expert spa & massage therapies at Itismita Spa, Bangalore. Head-to-toe pain relief, Swedish, Aroma, Deep Tissue, Reflexology, Body Scrub and more. Book on WhatsApp." />
+  <meta name="description" content="Relax, rejuvenate and heal with expert spa & massage therapies at Itismita Spa, Bangalore. Head-to-toe pain relief, Swedish, Aroma, Deep Tissue, Reflexology, Body Scrub and more. Exclusively for women. Book on WhatsApp." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://itismita-spa.github.io/" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --brand: #7c3aed;
       --brand-dark: #5b21b6;
       --accent: #10b981;
-      --bg: #fafafa;
+      --bg-start: #f3e8ff;
+      --bg-end: #fafafa;
       --text: #333;
       --footer-bg: linear-gradient(135deg, #7c3aed, #5b21b6);
     }
     * { box-sizing: border-box; }
-    body { margin:0; font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); line-height:1.6; }
+    body { 
+      margin:0; 
+      font-family: 'Poppins', sans-serif; 
+      background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 25%); 
+      background-attachment: fixed;
+      color: var(--text); 
+      line-height:1.6; 
+    }
     header { background: var(--brand); color:#fff; padding: 28px 16px; text-align:center; }
     header h1 { margin:0; font-size: 2.4rem; font-weight: 700; letter-spacing: 1px; }
     header h4 { margin:6px 0; font-style: italic; opacity:0.9; }
@@ -32,7 +43,8 @@
     .service-info { padding: 14px; display:flex; flex-direction:column; gap:8px; flex:1; }
     .service-info h3 { margin:0; color: var(--brand-dark); font-size: 1.15rem; font-weight:600; }
     .service-info p { margin:0; font-size: 0.95rem; }
-    .price { color: var(--accent); font-weight: 700; margin-top: 4px; font-size: 1.05rem; }
+    .price-details { margin-top: 4px; font-size: 0.9rem; }
+    .price { color: var(--accent); font-weight: 700; font-size: 1.05rem; }
     .book-btn { margin-top: auto; background: var(--brand); color:#fff; border:none; padding: 10px 12px; border-radius: 10px; cursor:pointer; font-size: 1rem; width:100%; transition: background .2s ease; }
     .book-btn:hover { background: var(--brand-dark); }
 
@@ -46,6 +58,17 @@
     input, select { width:100%; padding: 10px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem; }
     .confirm { margin-top: 14px; width:100%; background: var(--brand); color:#fff; border:none; border-radius: 10px; padding: 12px; font-size: 1rem; cursor:pointer; transition: background .2s ease; }
     .confirm:hover { background: var(--brand-dark); }
+    
+    .home-service-banner {
+      background: #e9d5ff;
+      color: var(--brand-dark);
+      padding: 16px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
 
     /* Footer */
     footer { background: var(--footer-bg); color:#fff; text-align:center; padding: 30px 16px; margin-top:40px; }
@@ -58,6 +81,7 @@
       header h1 { font-size: 1.8rem; }
       .service-info p { font-size: 0.9rem; }
       footer h2 { font-size: 1.3rem; }
+      .home-service-banner { font-size: 1rem; }
     }
   </style>
 </head>
@@ -67,15 +91,20 @@
     <h1>Itismita Spa</h1>
     <h4>(Best Spa & Massage Therapy in Bangalore)</h4>
     <p>✨ Relax • Rejuvenate • Refresh ✨</p>
+    <p>Exclusively for Women</p>
   </header>
+
+  <div class="home-service-banner">
+    <p>Premium Spa & Massage Services at Your Doorstep in Bangalore</p>
+  </div>
 
   <section class="services" id="services"></section>
 
-  <!-- Booking Modal -->
   <div id="bookingModal" class="modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <span class="close" onclick="closeBooking()" aria-label="Close">&times;</span>
       <h2 id="modalTitle">Book Your Therapy</h2>
+      <p style="text-align: center; color: var(--brand-dark); font-weight: 600;">(Exclusively for Women)</p>
       <p class="meta" id="modalMeta"></p>
 
       <form id="bookingForm">
@@ -85,8 +114,17 @@
         <label for="custPhone">Contact Number</label>
         <input type="tel" id="custPhone" placeholder="e.g. 9xxxxxxxxx" required />
 
-        <input type="text" id="service" readonly />
+        <label for="custAddress">Address</label>
+        <input type="text" id="custAddress" placeholder="Enter your full address" required />
+        
+        <input type="hidden" id="service" />
         <input type="hidden" id="price" />
+        
+        <label for="kitOption">Service Option</label>
+        <select id="kitOption" required>
+            <option value="with_kit">With Oil and Spa Kit</option>
+            <option value="without_kit">Without Oil and Spa Kit</option>
+        </select>
 
         <label for="date">Select Date</label>
         <select id="date" required></select>
@@ -99,12 +137,12 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <h2>Itismita Spa</h2>
     <p>📍 Marathahalli • Whitefield • Sarjapur • Varthur • Koramangala</p>
     <p>📞 <a href="tel:+918971403978">+91 89714 03978</a></p>
     <p>💬 Book easily on <a href="https://wa.me/918971403978" target="_blank">WhatsApp</a></p>
+    <p style="font-style: italic;">We serve women exclusively.</p>
     <p>&copy; <span id="year"></span> Itismita Spa. All Rights Reserved.</p>
   </footer>
 
@@ -113,29 +151,35 @@
 
     // ---------- DATA: services ----------
     const services = [
-      {name:"Head to Toe Pain Relief", desc:"Deep tissue + foot + head massage (high pressure)", duration:"90 mins", price:"1799", img:"images/head_toe_massage.png"},
-      {name:"Swedish Relief Massage", desc:"Full body massage (medium pressure)", duration:"60 mins", price:"1399", img:"images/swedish_massage.png"},
-      {name:"Aroma Therapy Massage", desc:"Full body massage (light pressure)", duration:"60 mins", price:"1399", img:"images/aroma_massage.png"},
-      {name:"Full Body Deep Tissue Massage", desc:"Full body massage (high pressure)", duration:"60 mins", price:"1499", img:"images/deep_tissue.png"},
-      {name:"Full Back Massage", desc:"Full back massage (medium pressure)", duration:"60 mins", price:"1399", img:"images/back_massage.jpg"},
-      {name:"Signature Therapy Head to Toe Massage", desc:"Full body + head + face massage (medium pressure)", duration:"90 mins", price:"1799", img:"images/signature.png"},
-      {name:"Period Pamper Massage", desc:"Abdominal + lower back + calves + thigh massage", duration:"45 mins", price:"999", img:"images/period_pamper.png"},
-      {name:"Full Body Scrub", desc:"Exfoliating full body scrub", duration:"60 mins", price:"1399", img:"images/scrub_massage.jpg"},
-      {name:"Stretching with Full Body Massage", desc:"Stretching + full body massage", duration:"70 mins", price:"1599", img:"images/stretching.png"},
-      {name:"Foot Reflexology Massage", desc:"Foot reflexology massage", duration:"60 mins", price:"1399", img:"images/foot_massage.jpg"}
+      {name:"Head to Toe Pain Relief", desc:"Relieves chronic pain and muscle soreness from head to toe, improves flexibility, and reduces stress.", duration:"90 mins", price:1799, img:"images/head_toe_massage.png"},
+      {name:"Swedish Relief Massage", desc:"A gentle, rhythmic massage that soothes tense muscles, increases circulation, and promotes deep relaxation.", duration:"60 mins", price:1399, img:"images/swedish_massage.png"},
+      {name:"Aroma Therapy Massage", desc:"Uses essential oils to calm the mind and body, improve mood, and relieve stress and anxiety.", duration:"60 mins", price:1399, img:"images/aroma_massage.png"},
+      {name:"Full Body Deep Tissue Massage", desc:"Targets deep layers of muscle and connective tissue to relieve chronic pain and tension.", duration:"60 mins", price:1499, img:"images/deep_tissue.png"},
+      {name:"Full Back Massage", desc:"Focuses on the back and shoulders to relieve knots and tension from poor posture or stress.", duration:"60 mins", price:1399, img:"images/back_massage.jpg"},
+      {name:"Signature Therapy Head to Toe Massage", desc:"A comprehensive massage that combines various techniques to rejuvenate the entire body, from head to toe.", duration:"90 mins", price:1799, img:"images/signature.png"},
+      {name:"Period Pamper Massage", desc:"Soothes and eases menstrual cramps and discomfort, reduces bloating, and improves mood during your cycle.", duration:"45 mins", price:999, img:"images/period_pamper.png"},
+      {name:"Full Body Scrub", desc:"Exfoliates and polishes the skin, removes dead cells, and leaves your skin feeling soft, smooth, and refreshed.", duration:"60 mins", price:1399, img:"images/scrub_massage.jpg"},
+      {name:"Stretching with Full Body Massage", desc:"Combines assisted stretching with massage to improve flexibility, range of motion, and muscle recovery.", duration:"70 mins", price:1599, img:"images/stretching.png"},
+      {name:"Foot Reflexology Massage", desc:"Applies pressure to specific points on the feet to stimulate nerve endings, relieve pain, and promote overall well-being.", duration:"60 mins", price:1399, img:"images/foot_massage.jpg"}
     ];
+    
+    const KIT_PRICE_DIFFERENCE = 250;
 
     const grid = document.getElementById("services");
     services.forEach(s => {
       const card = document.createElement("article");
       card.className = "service-card";
+      const priceWithoutKit = s.price - KIT_PRICE_DIFFERENCE;
       card.innerHTML = `
         <img src="${s.img}" alt="${s.name} massage therapy" loading="lazy" onerror="this.style.display='none'">
         <div class="service-info">
           <h3>${s.name}</h3>
           <p>${s.desc}</p>
           <p>⏱️ ${s.duration}</p>
-          <p class="price">₹${s.price}</p>
+          <p class="price-details">
+            <strong class="price">With Oil & Spa Kit: ₹${s.price}</strong><br>
+            Without Oil & Spa Kit: ₹${priceWithoutKit}
+          </p>
           <button class="book-btn" onclick="openBooking('${s.name}','${s.price}','${s.duration}')">Book Now</button>
         </div>
       `;
@@ -145,6 +189,7 @@
     const modal = document.getElementById("bookingModal");
     const serviceInput = document.getElementById("service");
     const priceInput = document.getElementById("price");
+    const kitOptionSelect = document.getElementById("kitOption");
     const dateSelect = document.getElementById("date");
     const timeSelect = document.getElementById("time");
     const modalMeta = document.getElementById("modalMeta");
@@ -154,26 +199,45 @@
       modal.setAttribute("aria-hidden","false");
       serviceInput.value = service;
       priceInput.value = price;
-      modalMeta.textContent = `${service} • ${duration} • ₹${price}`;
+      
+      const updatePriceDisplay = () => {
+          let selectedPrice = parseInt(price);
+          if (kitOptionSelect.value === "without_kit") {
+              selectedPrice -= KIT_PRICE_DIFFERENCE;
+          }
+          priceInput.value = selectedPrice;
+          modalMeta.textContent = `${service} • ${duration} • ₹${selectedPrice}`;
+      };
+
+      kitOptionSelect.onchange = updatePriceDisplay;
+      
+      // Initialize the modal with default values
+      kitOptionSelect.value = "with_kit";
+      updatePriceDisplay();
+      
       populateDates();
       populateTimes();
     }
+    
     function closeBooking(){
       modal.style.display = "none";
       modal.setAttribute("aria-hidden","true");
     }
+    
     window.addEventListener("click", (e) => { if (e.target === modal) closeBooking(); });
 
     document.getElementById("bookingForm").addEventListener("submit", function(e){
       e.preventDefault();
       const name = document.getElementById("custName").value.trim();
       const phone = document.getElementById("custPhone").value.trim();
+      const address = document.getElementById("custAddress").value.trim();
       const service = serviceInput.value;
+      const kitOption = kitOptionSelect.value === 'with_kit' ? 'With Oil and Spa Kit' : 'Without Oil and Spa Kit';
       const price = priceInput.value;
       const date = dateSelect.value;
       const time = timeSelect.value;
-      if(!name || !phone || !date || !time){ alert("Please complete all fields."); return; }
-      const msg = `Hello, I am ${name} (WhatsApp: ${phone}). I want to book *${service}* on ${date} at ${time}. Price: ₹${price}`;
+      if(!name || !phone || !address || !date || !time){ alert("Please complete all fields."); return; }
+      const msg = `Hello, I am ${name} (WhatsApp: ${phone}). I want to book *${service}* (${kitOption}) on ${date} at ${time}. My address is ${address}. Price: ₹${price}`;
       window.open(`https://wa.me/918971403978?text=${encodeURIComponent(msg)}`, "_blank");
       closeBooking();
     });
@@ -192,10 +256,11 @@
         dateSelect.appendChild(opt);
       }
     }
+    
     function populateTimes(){
       timeSelect.innerHTML = "";
       const startMins = 9*60;
-      const endMins   = 18*60;
+      const endMins  = 18*60;
       const now = new Date();
       const selectedDate = new Date(dateSelect.value + "T00:00:00");
       for(let m=startMins; m<=endMins; m+=15){
